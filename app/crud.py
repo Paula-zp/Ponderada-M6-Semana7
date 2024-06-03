@@ -1,6 +1,6 @@
 # Arquivo com CRUD para interagir com o banco de dados
 from sqlalchemy.orm import Session
-from . import models, schemas
+import models, schemas
 
 # Função para pegar um usuário pelo ID
 def get_user(db: Session, user_id: int):

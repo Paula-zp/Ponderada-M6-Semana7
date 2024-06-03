@@ -2,7 +2,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
-from . import schemas, crud, database, dependecie
+import schemas, crud, database, dependencies
 
 router = APIRouter(prefix="/stories", tags=["stories"])
 
@@ -56,7 +56,7 @@ def generate_story_content(story_id: int, prompt: str, db: Session = Depends(get
     if db_story is None:
         raise HTTPException(status_code=404, detail="Story not found")
     
-    content = dependecie.generate_story_content(prompt)
+    content = dependencies.generate_story_content(prompt)
     db_story.content = db_story.content + "\n" + content if db_story.content else content
     
     db.commit()

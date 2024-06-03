@@ -1,7 +1,7 @@
 # Arquivo para definir os modelos de dados que serão usados no banco de dados
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from .database import Base
+from database import Base
 
 # Definindo a classe User que será usada para criar a tabela de usuários
 class User(Base):
